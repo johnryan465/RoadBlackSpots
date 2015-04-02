@@ -124,7 +124,7 @@ public class MainActivity extends ActionBarActivity {
         protected void onPostExecute(Road result) {
             mRoad = result;
             if (mRoad.mStatus != Road.STATUS_OK){
-                Toast.makeText(context, "Failed to retrieve route, check addresses and your internet connection ", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Failed to retrieve route, check addresses and your internet connetion ", Toast.LENGTH_LONG).show();
             }
             List<Overlay> mapOverlays = map.getOverlays();
             if (mRoad == null)
@@ -171,9 +171,6 @@ public class MainActivity extends ActionBarActivity {
                 } catch (IOException ie) {
                     return null;
                 }
-                if(destBuffer1.size() == 0||destBuffer2.size() == 0){
-                    return null;
-                }
                 if (point1 == null) {
                     point1 = new GeoPoint(destBuffer1.get(0).getLatitude(), destBuffer1.get(0).getLongitude());
                 }
@@ -187,7 +184,7 @@ public class MainActivity extends ActionBarActivity {
         }
         protected void onPostExecute(ArrayList ways) {
             if(ways == null){
-                Toast.makeText(context, "Failed to reverse geocode, check address", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Failed to reverse geocode", Toast.LENGTH_SHORT).show();
             }
             else {
                 waypoints = ways;
